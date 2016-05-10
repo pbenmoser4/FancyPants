@@ -18,6 +18,7 @@ class WelcomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = generateRandomColor()
     }
     
     convenience init() {
@@ -27,5 +28,14 @@ class WelcomeView: UIView {
     required init(coder aDecoder: NSCoder) {
         fatalError("Coders are for weenies")
     }
+    
+    
+}
+
+protocol WelcomeViewDelegate {
+    
+    func welcomeView(_: WelcomeView, didTapAtLocation: CGPoint)
+    func welcomeView(_: WelcomeView, didBeginPressAtLocation: CGPoint)
+    func welcomeView(_: WelcomeView, didEndPressAtLocation: CGPoint)
     
 }
